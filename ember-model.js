@@ -830,7 +830,7 @@ Ember.Model.reopenClass({
     }
 
     if (isFetch) {
-      deferred = Ember.Deferred.create();
+      deferred = Ember.RSVP.defer();
       Ember.set(deferred, 'resolveWith', records);
 
       if (!this._currentBatchDeferreds) { this._currentBatchDeferreds = []; }
@@ -929,7 +929,7 @@ Ember.Model.reopenClass({
         this._currentBatchRecordArrays = [];
       }
 
-      deferred = Ember.Deferred.create();
+      deferred = Ember.RSVP.defer();
 
       //Attached the record to the deferred so we can resolove it later.
       Ember.set(deferred, 'resolveWith', record);
